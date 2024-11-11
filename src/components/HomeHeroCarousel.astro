@@ -1,56 +1,37 @@
 ---
 import Header from '../components/Header.astro';
 ---
+
 <script>
-	import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollTrigger);
 
-	const textElement = document.querySelector(".title-wrapper");
-    gsap.fromTo(
-        textElement,
-        { opacity: 0 },
-        { opacity: 1, duration: 1, delay: 1.5 }
-    );
+    const textElement = document.querySelector('.title-wrapper');
+    gsap.fromTo(textElement, { opacity: 0 }, { opacity: 1, duration: 1, delay: 1.5 });
 
-    const videoElement = document.querySelector(".bg-video");
-    gsap.fromTo(
-        videoElement,
-        { opacity: 0 },
-        { opacity: 1, duration: 1, delay: 1 }
-    );
+    const videoElement = document.querySelector('.bg-video');
+    gsap.fromTo(videoElement, { opacity: 0 }, { opacity: 1, duration: 1, delay: 1 });
 
-    const videoBlurElement = document.querySelector(".bg-video-blur");
-    gsap.fromTo(
-        videoBlurElement,
-        { opacity: 0 },
-        { opacity: 1, duration: 1, delay: 1.5 }
-    );
+    const videoBlurElement = document.querySelector('.bg-video-blur');
+    gsap.fromTo(videoBlurElement, { opacity: 0 }, { opacity: 1, duration: 1, delay: 1.5 });
 
-    const heroDotsElement = document.querySelector(".hero-dots");
-    gsap.fromTo(
-        heroDotsElement,
-        { opacity: 0 },
-        { opacity: .8, duration: 1, delay: 1.5 }
-    );
+    const heroDotsElement = document.querySelector('.hero-dots');
+    gsap.fromTo(heroDotsElement, { opacity: 0 }, { opacity: 0.8, duration: 1, delay: 1.5 });
 
-    const carouselButtonElement = document.querySelectorAll(".carousel-button");
-    gsap.fromTo(
-        carouselButtonElement,
-        { y: "33%", opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, delay: 1, stagger: .1, ease: "back.out(3)" },
-    );
+    const carouselButtonElement = document.querySelectorAll('.carousel-button');
+    gsap.fromTo(carouselButtonElement, { y: '33%', opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 1, stagger: 0.1, ease: 'back.out(3)' });
 </script>
-
 
 <div class="hero-carousel">
     <Header />
-    <div class="hero-dots">
-    </div>
+    <div class="hero-dots"></div>
     <div class="bg-video">
-        <video autoplay muted loop class="carousel-media">
-            <source src="/videos/hero-minions.mp4" type="video/mp4">
-        </video>
+        <div class="carousel-media">
+            <video autoplay muted loop>
+                <source src="/videos/hero-minions.mp4" type="video/mp4" />
+            </video>
+        </div>
         <div class="content-wrapper">
             <div class="title-wrapper">
                 <h1 class="title">we create content that entertains</h1>
@@ -58,48 +39,42 @@ import Header from '../components/Header.astro';
             <div class="carousel-button-wrapper">
                 <div class="carousel-buttons">
                     <div class="carousel-button active">
-                        <div class="carousel-button-title">
-                            Media
-                        </div>
+                        <div class="carousel-button-title">Media</div>
                         <div class="carousel-link-wrap">
-                            <div class="carousel-link-text active">
-                                Learn More
-                            </div>
+                            <div class="carousel-link-text active">Learn More</div>
                             <div class="icon-circle-wrap active">
                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z" fill="#F9FAFB"/>
+                                    <path
+                                        d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z"
+                                        fill="#F9FAFB"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-button">
-                        <div class="carousel-button-title">
-                            Studios
-                        </div>
+                        <div class="carousel-button-title">Studios</div>
                         <div class="carousel-link-wrap">
-                            <div class="carousel-link-text">
-                                Learn More
-                            </div>
+                            <div class="carousel-link-text">Learn More</div>
                             <div class="icon-circle-wrap">
                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z" fill="#F9FAFB"/>
+                                    <path
+                                        d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z"
+                                        fill="#F9FAFB"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-button">
-                        <div class="carousel-button-title">
-                            News
-                        </div>
+                        <div class="carousel-button-title">News</div>
                         <div class="carousel-link-wrap">
-                            <div class="carousel-link-text">
-                                Learn More
-                            </div>
+                            <div class="carousel-link-text">Learn More</div>
                             <div class="icon-circle-wrap">
                                 <div class="icon-wrap">
                                     <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z" fill="#F9FAFB"/>
-                                    </svg>                                    
+                                        <path
+                                            d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z"
+                                            fill="#F9FAFB"></path>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -107,16 +82,16 @@ import Header from '../components/Header.astro';
                     <div class="carousel-button">
                         <div class="carousel-button-title">
                             Destinations &
-                            <br/>
+                            <br />
                             Experiences
                         </div>
                         <div class="carousel-link-wrap">
-                            <div class="carousel-link-text">
-                                Learn More
-                            </div>
+                            <div class="carousel-link-text">Learn More</div>
                             <div class="icon-circle-wrap">
                                 <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z" fill="#F9FAFB"/>
+                                    <path
+                                        d="M17.5547 7.96875L10.6797 14.8438C10.4453 15.0781 10.0156 15.0781 9.78125 14.8438C9.54688 14.6094 9.54688 14.1797 9.78125 13.9453L15.6016 8.125H0.875C0.523438 8.125 0.25 7.85156 0.25 7.5C0.25 7.1875 0.523438 6.875 0.875 6.875H15.6016L9.78125 1.09375C9.54688 0.859375 9.54688 0.429688 9.78125 0.195312C10.0156 -0.0390625 10.4453 -0.0390625 10.6797 0.195312L17.5547 7.07031C17.7891 7.30469 17.7891 7.73438 17.5547 7.96875Z"
+                                        fill="#F9FAFB"></path>
                                 </svg>
                             </div>
                         </div>
@@ -127,14 +102,15 @@ import Header from '../components/Header.astro';
         <div class="hero-fade"></div>
     </div>
     <div class="bg-video-blur">
-        <video autoplay muted loop class="carousel-media">
-            <source src="/videos/hero-minions.mp4" type="video/mp4">
-        </video>
+        <div class="carousel-media">
+            <video autoplay muted loop>
+                <source src="/videos/hero-minions.mp4" type="video/mp4" />
+            </video>
+        </div>
     </div>
 </div>
 
 <style>
-
     .hero-carousel {
         position: relative;
         width: 100%;
@@ -163,7 +139,7 @@ import Header from '../components/Header.astro';
         bottom: 0;
         width: 100%;
         height: 268px;
-        background: url("/svg/dot-gradient.svg");
+        background: url('/svg/dot-gradient.svg');
         z-index: 1;
     }
 
@@ -182,10 +158,11 @@ import Header from '../components/Header.astro';
     .bg-video {
         position: absolute;
         object-fit: cover;
-        width: 80%;
-        height: 80%;
+        top: 10%;
+        width: 85%;
+        height: 85%;
         z-index: 1;
-        background: url("/images/hero-fallback-img.jpg");
+        background: url('/images/hero-fallback-img.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         filter: blur(0px);
@@ -193,29 +170,43 @@ import Header from '../components/Header.astro';
         border-radius: 12px;
         overflow: hidden;
         border: var(--c-border-alt-primary) 1px solid;
+        display: flex;
+    }
+
+    .carousel-media {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    video {
+        object-fit: cover;
     }
 
     .bg-video-blur {
         position: absolute;
         object-fit: cover;
         top: 12%;
-        width: 80%;
-        height: 60%;
+        width: 85%;
+        height: 75%;
         z-index: 0;
-        background: url("/images/hero-fallback-img.jpg");
+        background: url('/images/hero-fallback-img.jpg');
         background-size: cover;
         filter: blur(80px);
         opacity: 1;
-    }
-
-    .carousel-media {
-        width: 101%;
+        overflow: hidden;
     }
 
     h1 {
         color: var(--c-text-primary);
         text-shadow: 0 2px 40px var(--c-bg-secondary);
-        letter-spacing: -.9px;
+        letter-spacing: -0.9px;
     }
 
     .title-wrapper {
@@ -245,7 +236,7 @@ import Header from '../components/Header.astro';
         width: 75%;
         display: flex;
         flex-direction: row;
-        gap: .5rem;
+        gap: 0.5rem;
         padding: 0 1rem;
         overflow: visible;
     }
@@ -257,7 +248,7 @@ import Header from '../components/Header.astro';
         background-color: var(--c-surface-primary);
         backdrop-filter: blur(16px);
         padding: 1rem 1.5rem 1.25rem 1.5rem;
-        opacity: .99;
+        opacity: 0.99;
         cursor: pointer;
         display: flex;
         flex-direction: column;
@@ -275,7 +266,7 @@ import Header from '../components/Header.astro';
         display: flex;
         gap: 12px;
         align-items: center;
-        font-size: .95rem;
+        font-size: 0.95rem;
     }
 
     .carousel-link-text {
@@ -308,13 +299,13 @@ import Header from '../components/Header.astro';
     }
 
     @media (min-width: 1921px) {
-		.hero-carousel {
-			height: 90vh;
-		}
+        .hero-carousel {
+            height: 90vh;
+        }
 
         .bg-video {
-            width: 80%;
-            height: 75%;
+            width: 88%;
+            height: 80%;
         }
-	}
+    }
 </style>
