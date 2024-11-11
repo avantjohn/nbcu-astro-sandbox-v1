@@ -20,6 +20,7 @@
     "@types/react-dom": "^18.2.25",
     "astro": "^4.16.10",
     "blobshape": "^1.0.0",
+    "gsap": "^3.12.5",
     "marked": "^13.0.0",
     "marked-shiki": "^1.1.0",
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/blobshape": "^1.0.3",
+    "@types/gsap": "^3.0.0",
     "@types/node": "^20.12.7",
     "daisyui": "^4.10.2"
   }

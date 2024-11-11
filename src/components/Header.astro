@@ -1,30 +1,102 @@
 ---
-import Logo from '../components/Logo.astro';
-
-const navItems = [
-    { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
-];
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
-    </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
-</nav>
+<script>
+	import { gsap } from "gsap";
+	
+	const nav = document.getElementById("nav");
+	const myTimeline = gsap.timeline();
+	
+	myTimeline
+		.from(nav, {
+			y: "-90px",
+		})
+		.to(nav, {
+			y: "0px",
+		})
+</script>
+
+<header id="nav">
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/blog">History</HeaderLink>
+			<HeaderLink href="/impact">Impact</HeaderLink>
+			<HeaderLink href="/blog">Brands</HeaderLink>
+			<HeaderLink href="/blog">Newsroom</HeaderLink>
+			<HeaderLink href="/blog">Careers</HeaderLink>
+		</div>
+		<div class="social-links">
+			<a href="https://github.com/withastro/astro" target="_blank">
+				<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M13.5088 7.30371C13.5088 5.12402 12.3135 3.08496 10.415 1.95996C8.48145 0.870117 6.12598 0.870117 4.22754 1.95996C2.29395 3.08496 1.13379 5.12402 1.13379 7.30371C1.13379 9.51855 2.29395 11.5576 4.22754 12.6826C6.12598 13.7725 8.48145 13.7725 10.415 12.6826C12.3135 11.5576 13.5088 9.51855 13.5088 7.30371ZM12.0674 12.8584C10.8018 13.9834 9.11426 14.6162 7.32129 14.6162C3.27832 14.6162 0.00878906 11.3467 0.00878906 7.30371C0.00878906 3.2959 3.27832 -0.00878906 7.32129 -0.00878906C11.3291 -0.00878906 14.6338 3.2959 14.6338 7.30371C14.6338 9.13184 13.9658 10.7842 12.876 12.085L17.833 17.042C18.0439 17.2529 18.0439 17.6396 17.833 17.8506C17.6221 18.0615 17.2354 18.0615 17.0244 17.8506L12.0674 12.8584Z" fill="#F9FAFB"/>
+				</svg>					
+			</a>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		padding: 0 1em;
+		background: rgba(0, 0, 0, 0.5);
+		border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+		z-index: 10;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom: 1px solid var(--accent);
+	}
+	
+	.social-links {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 32px;
+		border: var(--color-gray-50) 1px solid;
+	}
+
+	.social-links a {
+		display: flex;
+	}
+
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+	.internal-links {
+		display: flex;
+		gap: 1.25em;
+	}
+
+</style>

@@ -1,50 +1,389 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+    /* font smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -o-font-smoothing: antialiased;
+}
 
-@layer base {
-    h1 {
-        @apply text-4xl font-bold tracking-tight sm:text-5xl;
+@font-face {
+    font-family: 'Rock';
+    src: url(/fonts/rock-sans-normal.otf);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Rock';
+    src: url(/fonts/rock-sans-bold.otf);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Add Custom Color Palette */
+:root {
+    /* WEB THEME */
+
+    /* Text Color Styles */
+    --c-text-primary: var(--color-gray-50);
+    --c-text-secondary: var(--color-gray-300);
+    --c-text-alt-primary: var(--color-gray-500);
+    --c-text-alt-secondary: var(--color-gray-950);
+
+    /* Background Color Styles */
+    --c-bg-primary: var(--color-gray-950);
+    --c-bg-secondary: oklch(from var(--color-gray-950) 10% c h / 100%);
+
+    /* Surface Color Styles */
+    --c-surface-primary: oklch(from var(--color-gray-950) l c h / 30%);
+    --c-surface-secondary: var(--color-gray-900);
+
+    /* Border Color Styles */
+    --c-border-primary: oklch(from var(--color-gray-50) l c h / 10%);
+    --c-border-secondary: oklch(from var(--color-gray-50) l c h / 30%);
+    --c-border-alt-primary: var(--color-gray-950);
+    --c-border-alt-secondary: oklch(from var(--color-gray-950) l c h / 50%);
+
+    /* Icon Color Styles */
+    --c-icon-primary: var(--color-gray-50);
+    --c-icon-secondary: var(--color-cyan-500);
+
+    /* GLOBAL PALETTE */
+
+    /* gray */
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    --color-gray-950: #030712;
+
+    /* indigo */
+    --color-indigo-50: #fcfaff;
+    --color-indigo-100: #f6f0ff;
+    --color-indigo-200: #ebdbff;
+    --color-indigo-300: #dfc7ff;
+    --color-indigo-400: #d1adff;
+    --color-indigo-500: #c294ff;
+    --color-indigo-600: #ae70ff;
+    --color-indigo-700: #8b33ff;
+    --color-indigo-800: #400095;
+    --color-indigo-900: #330075;
+    --color-indigo-950: #230052;
+    /* violet */
+    --color-violet-50: #fefaff;
+    --color-violet-100: #fbf0ff;
+    --color-violet-200: #f5dbff;
+    --color-violet-300: #efc2ff;
+    --color-violet-400: #e8a8ff;
+    --color-violet-500: #de85ff;
+    --color-violet-600: #d257ff;
+    --color-violet-700: #ac00eb;
+    --color-violet-800: #550073;
+    --color-violet-900: #43005c;
+    --color-violet-950: #310042;
+
+    /* magenta */
+    --color-magenta-50: #fff5fc;
+    --color-magenta-100: #ffebfa;
+    --color-magenta-200: #ffd6f5;
+    --color-magenta-300: #ffc2f0;
+    --color-magenta-400: #ff9ee7;
+    --color-magenta-500: #ff7ade;
+    --color-magenta-600: #ff33cc;
+    --color-magenta-700: #d1009d;
+    --color-magenta-800: #6b0050;
+    --color-magenta-900: #4d0039;
+    --color-magenta-950: #38002a;
+
+    /* rose */
+    --color-rose-50: #fff5f9;
+    --color-rose-100: #fff0f5;
+    --color-rose-200: #ffdbe8;
+    --color-rose-300: #ffc2d8;
+    --color-rose-400: #ffa8c8;
+    --color-rose-500: #ff85b1;
+    --color-rose-600: #ff5291;
+    --color-rose-700: #e60054;
+    --color-rose-800: #80002e;
+    --color-rose-900: #52001e;
+    --color-rose-950: #3d0016;
+
+    /* red */
+    --color-red-50: #fffafa;
+    --color-red-100: #fff0f1;
+    --color-red-200: #ffdbde;
+    --color-red-300: #ffc7cb;
+    --color-red-400: #ffadb3;
+    --color-red-500: #ff8a92;
+    --color-red-600: #ff5c67;
+    --color-red-700: #eb0010;
+    --color-red-800: #95000b;
+    --color-red-900: #6b0007;
+    --color-red-950: #570006;
+
+    /* orange */
+    --color-orange-50: #fef7f5;
+    --color-orange-100: #fef0ec;
+    --color-orange-200: #fcddd4;
+    --color-orange-300: #fbc7b7;
+    --color-orange-400: #f9b09a;
+    --color-orange-500: #f79273;
+    --color-orange-600: #f3693f;
+    --color-orange-700: #d93c0d;
+    --color-orange-800: #852508;
+    --color-orange-900: #5b1a05;
+    --color-orange-950: #481404;
+
+    /* amber */
+    --color-amber-50: #fffbf5;
+    --color-amber-100: #fef3e2;
+    --color-amber-200: #fce3bb;
+    --color-amber-300: #f9cf8b;
+    --color-amber-400: #f6b955;
+    --color-amber-500: #f3a01b;
+    --color-amber-600: #d5880b;
+    --color-amber-700: #af6f09;
+    --color-amber-800: #754b06;
+    --color-amber-900: #4e3104;
+    --color-amber-950: #352203;
+
+    /* yellow */
+    --color-yellow-50: #fefce6;
+    --color-yellow-100: #fdf7be;
+    --color-yellow-200: #faea56;
+    --color-yellow-300: #f3dc06;
+    --color-yellow-400: #e0ca06;
+    --color-yellow-500: #ccb805;
+    --color-yellow-600: #b3a105;
+    --color-yellow-700: #958704;
+    --color-yellow-800: #706503;
+    --color-yellow-900: #4f4802;
+    --color-yellow-950: #373101;
+
+    /* lime */
+    --color-lime-50: #f6ffeb;
+    --color-lime-100: #e4ffc2;
+    --color-lime-200: #b6ff57;
+    --color-lime-300: #8efa00;
+    --color-lime-400: #85eb00;
+    --color-lime-500: #79d600;
+    --color-lime-600: #6ec200;
+    --color-lime-700: #62ad00;
+    --color-lime-800: #559500;
+    --color-lime-900: #3d6b00;
+    --color-lime-950: #2b4d00;
+
+    /* green */
+    --color-green-50: #f8fdf7;
+    --color-green-100: #eefaea;
+    --color-green-200: #d4f2c9;
+    --color-green-300: #b6eaa4;
+    --color-green-400: #97e17f;
+    --color-green-500: #73d651;
+    --color-green-600: #54c62f;
+    --color-green-700: #4cb22a;
+    --color-green-800: #409523;
+    --color-green-900: #285f16;
+    --color-green-950: #17360d;
+
+    /* emerald */
+    --color-emerald-50: #f6fefb;
+    --color-emerald-100: #e4fbf3;
+    --color-emerald-200: #bcf6e1;
+    --color-emerald-300: #8fefce;
+    --color-emerald-400: #55e7b4;
+    --color-emerald-500: #1ed796;
+    --color-emerald-600: #1cc58a;
+    --color-emerald-700: #19b37d;
+    --color-emerald-800: #159568;
+    --color-emerald-900: #0e6748;
+    --color-emerald-950: #083626;
+
+    /* teal */
+    --color-teal-50: #f0fffe;
+    --color-teal-100: #d1fffc;
+    --color-teal-200: #75fff6;
+    --color-teal-300: #00f5e4;
+    --color-teal-400: #00ebdb;
+    --color-teal-500: #00d6c8;
+    --color-teal-600: #00c2b5;
+    --color-teal-700: #00ada2;
+    --color-teal-800: #00958a;
+    --color-teal-900: #00665f;
+    --color-teal-950: #003834;
+
+    /* cyan */
+    --color-cyan-50: #f6fcfe;
+    --color-cyan-100: #e8f8fc;
+    --color-cyan-200: #c8edf9;
+    --color-cyan-300: #a3e2f5;
+    --color-cyan-400: #7ad4f0;
+    --color-cyan-500: #48c4ea;
+    --color-cyan-600: #19aedc;
+    --color-cyan-700: #1595bc;
+    --color-cyan-800: #10708d;
+    --color-cyan-900: #0a4557;
+    --color-cyan-950: #041d25;
+
+    /* blue */
+    --color-blue-50: #fbfcfe;
+    --color-blue-100: #eef3fb;
+    --color-blue-200: #d9e5f7;
+    --color-blue-300: #c5d6f2;
+    --color-blue-400: #acc4ec;
+    --color-blue-500: #8eb0e6;
+    --color-blue-600: #6d99df;
+    --color-blue-700: #3f78d4;
+    --color-blue-800: #204b90;
+    --color-blue-900: #14305c;
+    --color-blue-950: #0b1a32;
+
+    /* purple */
+    --color-purple-50: #fbfbfe;
+    --color-purple-100: #f4f3fc;
+    --color-purple-200: #e5e3f8;
+    --color-purple-300: #d2cef3;
+    --color-purple-400: #bfbaed;
+    --color-purple-500: #aca5e8;
+    --color-purple-600: #9289e1;
+    --color-purple-700: #6c60d7;
+    --color-purple-800: #302592;
+    --color-purple-900: #211a66;
+    --color-purple-950: #171245;
+}
+
+/* Add Custom Page Styles */
+body {
+    font-family: 'Rock', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background: var(--c-bg-secondary);
+    background-size: 100% 600px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: var(--c-text-primary);
+    font-size: 20px;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main {
+    width: 1920px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--color-gray-950);
+    overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 0.5rem 0;
+    color: var(--c-text-primary);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 3.052em;
+}
+h2 {
+    font-size: 2.441em;
+}
+h3 {
+    font-size: 1.953em;
+}
+h4 {
+    font-size: 1.563em;
+}
+h5 {
+    font-size: 1.25em;
+}
+strong,
+b {
+    font-weight: 700;
+}
+a {
+    color: var(--accent);
+}
+a:hover {
+    color: var(--accent);
+}
+p {
+    margin-bottom: 1em;
+}
+.prose p {
+    margin-bottom: 2em;
+}
+textarea {
+    width: 100%;
+    font-size: 16px;
+}
+input {
+    font-size: 16px;
+}
+table {
+    width: 100%;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+code {
+    padding: 2px 5px;
+    background-color: rgb(var(--gray-light));
+    border-radius: 2px;
+}
+pre {
+    padding: 1.5em;
+    border-radius: 8px;
+}
+pre > code {
+    all: unset;
+}
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 0 0 0 20px;
+    margin: 0px;
+    font-size: 1.333em;
+}
+hr {
+    border: none;
+    border-top: 1px solid rgb(var(--gray-light));
+}
+@media (max-width: 1920px) {
+    body {
+        font-size: 18px;
     }
-
-    h2 {
-        @apply text-2xl font-bold sm:text-3xl;
-    }
-
-    a {
-        @apply underline transition hover:opacity-80;
-    }
-
-    pre {
-        @apply p-6 overflow-x-auto rounded-lg;
-    }
-
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-[#1f1f1f] text-[#F67280];
-        font-size: 0.9em;
+    main {
+        padding: 0;
     }
 }
 
-@layer components {
-    .markdown > h1,
-    .markdown > h2 {
-        @apply mt-12 mb-6;
-    }
-
-    .markdown > p,
-    .markdown > pre {
-        @apply my-6;
-    }
-
-    .markdown > :first-child {
-        @apply mt-0;
-    }
-
-    .markdown > :last-child {
-        @apply mb-0;
-    }
-
-    .btn:disabled {
-        @apply text-neutral-400 bg-neutral-700;
-    }
+.sr-only {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+    clip: rect(1px 1px 1px 1px);
+    /* maybe deprecated but we need to support legacy browsers */
+    clip: rect(1px, 1px, 1px, 1px);
+    /* modern browsers, clip-path works inwards from each corner */
+    clip-path: inset(50%);
+    /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+    white-space: nowrap;
 }
